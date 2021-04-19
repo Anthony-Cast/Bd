@@ -29,7 +29,7 @@
             <td th:text="${var.index}"></td>
             <td th:text="${producto.productname}"></td>
             <td th:text="${producto.supplierid}"></td>
-            <td th:text="${producto.categoryid}"></td>
+            <td th:text="${producto.categoria.categoryname}"></td>
             <td th:text="${producto.quantityperunit}"></td>
             <td th:text="${producto.unitprice}"></td>
             <td th:text="${producto.unitsinstock}"></td>
@@ -37,7 +37,7 @@
             <td th:text="${producto.reorderlevel}"></td>
             <td th:text="${producto.discontinued}"></td>
             <td><a class="btn btn-info" th:href="@{'/products/editarProduct?id='+${producto.productid}}">Editar</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/product/borrarProduct?id='+${producto.productid}}">Borrar</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/products/borrarProduct?id='+${producto.productid}}">Borrar</a></td>
         </tr>
     </table>
 </div>

@@ -12,7 +12,9 @@ public class Product {
     @Column(nullable = false)
     private String productname;
     private Integer supplierid;
-    private Integer categoryid;
+    @ManyToOne
+    @JoinColumn(name = "categoryid")
+    private Category categoria;
     private String quantityperunit;
     private BigDecimal unitprice;
     private int unitsinstock;
@@ -45,12 +47,12 @@ public class Product {
         this.supplierid = supplierid;
     }
 
-    public Integer getCategoryid() {
-        return categoryid;
+    public Category getCategoria() {
+        return categoria;
     }
 
-    public void setCategoryid(Integer categoryid) {
-        this.categoryid = categoryid;
+    public void setCategoria(Category categoria) {
+        this.categoria = categoria;
     }
 
     public String getQuantityperunit() {

@@ -47,13 +47,5 @@ public class ProductoController {
         }
         return "redirect:/products/lista";
     }
-    @GetMapping("/products/borrarProduct2")
-    public String borrarCategoryPruebas(@RequestParam("id") int id){
-        Optional<Product> optional = productRepository.findById(id);
-        if(optional.isPresent()){
-            productRepository.deleteById(id);
-        }
-        return "redirect:/products/lista";//pruebas de commit and push
-    }
 }
 
