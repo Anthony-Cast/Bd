@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Shipper</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:href="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Editar Categoría</h2>
+    <form method="post" th:action="@{/categories/guardarCategory}" th:object="${categoriaEditar}">
+        <input type="hidden" th:field="*{categoryid}">
+        <div class="form-group">
+            <label for="categoryname">Nombre de la categoría</label>
+            <input type="text" class="form-group" th:field="*{categoryname}">
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción</label>
+            <input type="text" class="form-group" th:field="*{description}">
+        </div>
+        <a class="btn btn-danger" th:href="@{/categories/lista}">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
+</body>
+</html>

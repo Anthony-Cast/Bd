@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Categorias</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:href="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Lista Categorías</h2>
+    <a class="btn btn-success" th:href="@{/categories/newCategory}">Nueva Categoría</a>
+    <div class="form-inline">
+    <form method="post" th:action="@{/categories/buscar}" class="container">
+    <input type="text" name="searchField" placeholder="Search.." class="form-control">
+        <button type="submit" class="btn btn-info" >Buscar</button>
+        <a class="btn btn-danger" th:href="@{/categories/lista}">Cancelar</a>
+    </form>
+    </div>
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Nombre de la categoría</th>
+            <th>Description</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="categoria,var:${listaCategorias}">
+            <td th:text="${var.index}"></td>
+            <td th:text="${categoria.categoryname}"></td>
+            <td th:text="${categoria.description}"></td>
+            <td><a class="btn btn-info" th:href="@{'/categories/editarCategory?id='+${categoria.categoryid}}">Editar</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/categories/borrarCategory?id='+${categoria.categoryid}}">Borrar</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

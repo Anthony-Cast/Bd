@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Productos</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:href="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Lista Productos</h2>
+    <a class="btn btn-success" th:href="@{/products/newProduct}">Nueva Producto</a>
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Nombre del producto</th>
+            <th># Supplier</th>
+            <th># Category</th>
+            <th>Quantity per unit</th>
+            <th>Unit price</th>
+            <th>Units in stock</th>
+            <th>Units on order</th>
+            <th>Recorder level</th>
+            <th>Dicontinued</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="producto,var:${listaProductos}">
+            <td th:text="${var.index}"></td>
+            <td th:text="${producto.productname}"></td>
+            <td th:text="${producto.supplierid}"></td>
+            <td th:text="${producto.categoryid}"></td>
+            <td th:text="${producto.quantityperunit}"></td>
+            <td th:text="${producto.unitprice}"></td>
+            <td th:text="${producto.unitsinstock}"></td>
+            <td th:text="${producto.unitsonorder}"></td>
+            <td th:text="${producto.reorderlevel}"></td>
+            <td th:text="${producto.discontinued}"></td>
+            <td><a class="btn btn-info" th:href="@{'/products/editarProduct?id='+${producto.productid}}">Editar</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/product/borrarProduct?id='+${producto.productid}}">Borrar</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
