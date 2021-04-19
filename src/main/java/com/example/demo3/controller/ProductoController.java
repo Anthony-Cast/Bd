@@ -53,7 +53,7 @@ public class ProductoController {
         if(optional.isPresent()){
             productRepository.deleteById(id);
         }
-        return "redirect:/products/lista";
+        return "redirect:/products/lista";//pruebas de commit and push
     }
 }
 
